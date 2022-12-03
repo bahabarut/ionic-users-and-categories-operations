@@ -1,0 +1,46 @@
+<ion-content>
+  <ion-grid>
+
+    <ion-row>
+      <ion-card *ngIf="islem=='duzenle'">
+        <ion-card-header color="success">
+          <ion-card-title color="success">Kategori Düzenle</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          <ion-item>
+            <ion-label color="success" position="floating">Kategori Adı</ion-label>
+            <ion-input type="text" color="success" #adi [value]="secKategori.kategoriAdi"></ion-input>
+          </ion-item>
+        </ion-card-content>
+        <ion-button color="primary" (click)="Kaydet(adi.value)">Kaydet</ion-button>
+        <ion-button color="success" [routerLink]="['/kategoriler']">İptal</ion-button>
+      </ion-card>
+    </ion-row>
+    <ion-row>
+
+
+      <ion-card *ngIf="islem=='sil'">
+        <ion-card-header color="danger">
+          <ion-card-title color="danger">Kategori Sil</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          <ion-row>
+            <p> Kategori Adı : <b style="font-size: 20px;">{{secKategori.kategoriAdi}}</b></p>
+           
+            <ion-row>
+              <p><b style="font-size: 29px;">Kategori Silinecektir Onaylıyor Musunuz ?</b></p>
+
+            </ion-row>
+          </ion-row>
+        </ion-card-content>
+        <ion-button color="danger" (click)="Sil()">Sil</ion-button>
+        <ion-button color="success" [routerLink]="['/kategoriler']">İptal</ion-button>
+      </ion-card>
+    </ion-row>
+
+  </ion-grid>
+
+
+
+
+</ion-content>

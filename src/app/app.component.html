@@ -1,0 +1,64 @@
+<ion-menu type="reveal" contentId="main-content">
+  <ion-header>
+    <ion-toolbar color="success">
+      <ion-title>Menü</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content class="ion-padding">
+
+    <ion-menu-toggle>
+      <ion-item lines="full" [routerLink]="['']">
+        <ion-icon color="success" name="home-outline" slot="start"></ion-icon>
+        <ion-label>
+          <h2>Anasayfa</h2>
+        </ion-label>
+      </ion-item>
+    </ion-menu-toggle>
+
+    <ion-menu-toggle>
+      <ion-item lines="full" [routerLink]="['/kategoriler']">
+        <ion-icon color="success" name="apps-outline" slot="start"></ion-icon>
+        <ion-label>Kategoriler</ion-label>
+      </ion-item>
+    </ion-menu-toggle>
+
+    <ion-menu-toggle>
+      <ion-item lines="full" [routerLink]="['/uyeler']">
+        <ion-icon color="success" name="people-outline" slot="start"></ion-icon>
+        <ion-label>Üyeler</ion-label>
+      </ion-item>
+    </ion-menu-toggle>
+  </ion-content>
+</ion-menu>
+
+<div class="ion-page" id="main-content">
+  <ion-header>
+    <ion-toolbar color="success">
+      <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+      <ion-title style="cursor: pointer;" routerLink="/">Sistem Analizi Ve Tasarımı Uygulama 9</ion-title>
+
+      <ion-button class="avatar-button" shape="round" slot="end" color="success" [routerLink]="['login']"
+        *ngIf="!dataServis.OturumKontrol()">
+        <ion-avatar slot="end">
+          <img src="https://ionicframework.com/docs/img/demos/avatar.svg" />
+        </ion-avatar>
+        <ion-label class="avatar-label" slot="end">Giriş Yap</ion-label>
+      </ion-button>
+
+
+      <ion-avatar slot="end" *ngIf="dataServis.OturumKontrol()">
+        <img src="https://ionicframework.com/docs/img/demos/avatar.svg" />
+      </ion-avatar>
+      <ion-label style="margin: 10px;" slot="end" *ngIf="dataServis.OturumKontrol()">
+        {{dataServis.aktifUye.adSoyad}}
+      </ion-label>
+      <ion-button  style="margin-right: 25px;" shape="round" slot="end" color="success" (click)="OturumKapat()" *ngIf="dataServis.OturumKontrol()">Oturum Kapat</ion-button>
+
+    </ion-toolbar>
+  </ion-header>
+  <ion-content class="ion-padding">
+    <ion-router-outlet></ion-router-outlet>
+  </ion-content>
+</div>

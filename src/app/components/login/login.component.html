@@ -1,0 +1,20 @@
+<ion-content>
+  <div class="flex-center">
+    <ion-card>
+      <ion-card-header color="success">
+        <ion-card-title color="success">Giriş Ekranı</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-item>
+          <ion-label color="success" position="floating">E-Posta</ion-label>
+          <ion-input type="text" color="success" placeholder="E-Posta" #mail></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label color="success" position="floating">Parola</ion-label>
+          <ion-input type="text" color="success" placeholder="Parola" #parola></ion-input>
+        </ion-item>
+      </ion-card-content>
+      <ion-button size="block" color="success" (click)="OturumAc(mail.value,parola.value)">Giriş Yap</ion-button>
+    </ion-card>
+  </div>
+</ion-content>

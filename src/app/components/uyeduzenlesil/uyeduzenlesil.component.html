@@ -1,0 +1,57 @@
+<ion-content>
+  <ion-grid>
+
+    <ion-row>
+      <ion-card *ngIf="islem=='duzenle'">
+        <ion-card-header color="success">
+          <ion-card-title color="success">Üye Düzenle</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          <ion-item>
+            <ion-label color="success" position="floating">Ad Soyad</ion-label>
+            <ion-input type="text" color="success" #uyeadi [value]="secUye.adSoyad"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label color="success" position="floating">E-Posta</ion-label>
+            <ion-input type="text" color="success" #uyemail [value]="secUye.mail"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label color="success" position="floating">Parola</ion-label>
+            <ion-input type="text" color="success" #uyeparola [value]="secUye.parola"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating" color="success">Yönetici</ion-label>
+            <ion-select placeholder="Yönetici" color="success" #uyeadmin [value]="secUye.admin">
+              <ion-select-option value="1">Evet</ion-select-option>
+              <ion-select-option value="0">Hayır</ion-select-option>
+            </ion-select>
+          </ion-item>
+        </ion-card-content>
+        <ion-button color="primary" (click)="Kaydet(uyeadi.value,uyemail.value,uyeparola.value,uyeadmin.value)">Kaydet
+        </ion-button>
+        <ion-button color="success" [routerLink]="['/uyeler']">İptal</ion-button>
+      </ion-card>
+    </ion-row>
+    <ion-row>
+
+
+      <ion-card *ngIf="islem=='sil'">
+        <ion-card-header color="danger">
+          <ion-card-title color="danger">Üye Sil</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          <ion-row>
+            <p> Üye : <b style="font-size: 20px;">{{secUye.adSoyad}}</b></p>
+
+            <ion-row>
+              <p><b style="font-size: 29px;">Üye Silinecektir Onaylıyor Musunuz ?</b></p>
+
+            </ion-row>
+          </ion-row>
+        </ion-card-content>
+        <ion-button color="danger" (click)="Sil()" >Sil</ion-button>
+        <ion-button color="success" [routerLink]="['/uyeler']">İptal</ion-button>
+      </ion-card>
+    </ion-row>
+  </ion-grid>
+</ion-content>

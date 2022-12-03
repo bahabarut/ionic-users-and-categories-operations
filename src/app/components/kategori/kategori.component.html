@@ -1,0 +1,126 @@
+<ion-content>
+
+
+  <ion-item [disabled]="dataServis.aktifUye.admin=='0'">
+    <ion-label position="floating" color="success">Kategori Adı</ion-label>
+    <ion-input placeholder="Kategori Adı" #kategoriadi></ion-input>
+  </ion-item>
+
+  <ion-button color="success" (click)="KategoriEkle(kategoriadi.value)" [disabled]="dataServis.aktifUye.admin=='0' ">
+    Kategori Ekle
+  </ion-button>
+  <ion-row>
+    <ion-col size="2">
+      <div>
+        <h5> Id</h5>
+      </div>
+    </ion-col>
+    <ion-col size="2">
+      <div>
+        <h5> Kategori Adı</h5>
+      </div>
+    </ion-col>
+    <ion-col size="2">
+      <div>
+        <h5> Düzenleme Tarihi</h5>
+      </div>
+    </ion-col>
+    <ion-col size="2">
+      <div>
+        <h5> Kayıt Tarihi</h5>
+      </div>
+    </ion-col>
+    <ion-col size="2">
+      <div>
+        <h5> Düzenle</h5>
+      </div>
+    </ion-col>
+    <ion-col size="2">
+      <div>
+        <h5> Sil</h5>
+      </div>
+    </ion-col>
+  </ion-row>
+
+  <ion-row *ngFor="let kategori of kategoriler">
+    <ion-col size="2">
+      <div>
+        <h6>{{kategori.id}}</h6>
+      </div>
+    </ion-col>
+    <ion-col size="2">
+      <div>
+        <h6>{{kategori.kategoriAdi}}</h6>
+      </div>
+    </ion-col>
+    <ion-col size="2">
+      <div>
+        <h6> {{kategori.duzTarih | date:"dd.mm.yyyy hh:mm:ss "}}</h6>
+      </div>
+    </ion-col>
+    <ion-col size="2">
+      <div>
+        <h6> {{kategori.kayTarih | date:"dd.mm.yyyy hh:mm:ss "}}</h6>
+      </div>
+    </ion-col>
+    <ion-col size="2">
+      <div>
+        <ion-fab-button size="small" [routerLink]="['/katduzenlesil',kategori.id,'duzenle']"
+          [disabled]="dataServis.aktifUye.admin=='0'">
+          <ion-icon name="pencil"></ion-icon>
+        </ion-fab-button>
+      </div>
+    </ion-col>
+    <ion-col size="2" class="ion-center">
+      <div>
+        <ion-fab-button color="danger" size="small" [routerLink]="['/katduzenlesil',kategori.id,'sil']"
+          [disabled]="dataServis.aktifUye.admin=='0'">
+          <ion-icon name="trash"></ion-icon>
+        </ion-fab-button>
+      </div>
+    </ion-col>
+  </ion-row>
+
+
+</ion-content>
+
+
+<!-- <h3>Kategoriler</h3>
+  <ion-list>
+    <ion-list-header>
+      <ion-label>
+        <h3>Id</h3>
+      </ion-label>
+      <ion-label>
+        <h3>Kategori Adı</h3>
+      </ion-label>
+      <ion-label>
+        <h3>Düzenleme Tarihi</h3>
+      </ion-label>
+      <ion-label>
+        <h3>Kayıt Tarihi</h3>
+      </ion-label>
+    </ion-list-header>
+    <ion-item *ngFor="let kategori of kategoriler">
+      <ion-label>{{kategori.id}}</ion-label>
+      <ion-label>{{kategori.kategoriAdi}}</ion-label>
+      <ion-label>{{kategori.duzTarih | date: "dd.MM.yyyy HH:mm.ss"}}</ion-label>
+      <ion-label>{{kategori.kayTarih | date: "dd.MM.yyyy HH:mm.ss"}}</ion-label>
+      <ion-label>
+        <ion-fab>
+          <ion-fab-button size="">
+            <ion-icon name="add"></ion-icon>
+          </ion-fab-button>
+        </ion-fab>
+      </ion-label>
+
+      <ion-label>
+        <ion-fab>
+          <ion-fab-button size="">
+            <ion-icon name="add"></ion-icon>
+          </ion-fab-button>
+        </ion-fab>
+      </ion-label>
+
+    </ion-item>
+  </ion-list> -->

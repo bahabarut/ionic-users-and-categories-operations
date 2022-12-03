@@ -1,0 +1,145 @@
+<ion-content *ngIf="dataServis.aktifUye.admin=='0'">
+<ion-grid>
+  <div class="flex-center" >
+    <ion-card color="danger">
+      <ion-card-header>
+        <ion-card-title>Uyarı!!</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+       Buraya Girmeye Yetkiniz Yoktur.
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-grid>
+</ion-content>
+
+<ion-content *ngIf="dataServis.aktifUye.admin=='1'">
+  <ion-row>
+    <ion-item>
+      <ion-label position="floating" color="success">Ad Soyad</ion-label>
+      <ion-input placeholder="Ad Soyad" #uyeadsoyad></ion-input>
+    </ion-item>
+    &nbsp;&nbsp;&nbsp;
+    <ion-item>
+      <ion-label position="floating" color="success">E-Posta</ion-label>
+      <ion-input placeholder="E-Posta" #mail></ion-input>
+    </ion-item>
+    &nbsp;&nbsp;&nbsp;
+    <ion-item>
+      <ion-label position="floating" color="success">Parola</ion-label>
+      <ion-input placeholder="Parola" #parola></ion-input>
+    </ion-item>
+    &nbsp;&nbsp;&nbsp;
+    <ion-item>
+      <ion-label position="floating" color="success">Yönetici</ion-label>
+      <ion-select placeholder="Yönetici" color="success" #admin>
+        <ion-select-option value="1">Evet</ion-select-option>
+        <ion-select-option value="0">Hayır</ion-select-option>
+      </ion-select>
+    </ion-item>
+  </ion-row>
+
+  <ion-button color="success" (click)="UyeEkle(uyeadsoyad.value,mail.value,parola.value,admin.value)">
+    Üye Ekle
+  </ion-button>
+  <ion-row>
+    <ion-col size="1.3">
+      <div>
+        <h5> Id</h5>
+      </div>
+    </ion-col>
+    <ion-col size="1.3">
+      <div>
+        <h5>Ad Soyad</h5>
+      </div>
+    </ion-col>
+    <ion-col size="1.3">
+      <div>
+        <h5>E-Posta</h5>
+      </div>
+    </ion-col>
+    <ion-col size="1.3">
+      <div>
+        <h5>Admin</h5>
+      </div>
+    </ion-col>
+    <ion-col size="1.3">
+      <div>
+        <h5>Parola</h5>
+      </div>
+    </ion-col>
+    <ion-col size="1.3">
+      <div>
+        <h5>Düzenleme Tarihi</h5>
+      </div>
+    </ion-col>
+    <ion-col size="1.3">
+      <div>
+        <h5>Kayıt Tarihi</h5>
+      </div>
+    </ion-col>
+    <ion-col size="1.3">
+      <div>
+        <h5> Düzenle</h5>
+      </div>
+    </ion-col>
+    <ion-col size="1.3">
+      <div>
+        <h5> Sil</h5>
+      </div>
+    </ion-col>
+  </ion-row>
+
+  <ion-row *ngFor="let uye of uyeler">
+    <ion-col size="1.3">
+      <div>
+        <h6>{{uye.id}}</h6>
+      </div>
+    </ion-col>
+    <ion-col size="1.3 ">
+      <div>
+        <h6>{{uye.adSoyad}}</h6>
+      </div>
+    </ion-col>
+    <ion-col size="1.3 ">
+      <div>
+        <h6>{{uye.mail}}</h6>
+      </div>
+    </ion-col>
+    <ion-col size="1.3 ">
+      <div>
+        <ion-badge *ngIf="uye.admin=='1'" color="success">Evet</ion-badge>
+        <ion-badge *ngIf="uye.admin=='0'" color="danger">Hayır</ion-badge>
+      </div>
+    </ion-col>
+    <ion-col size="1.3 ">
+      <div>
+        <h6>{{uye.parola}}</h6>
+      </div>
+    </ion-col>
+    <ion-col size="1.3 ">
+      <div>
+        <h6> {{uye.duzTarih | date:"dd.mm.yyyy hh:mm:ss "}}</h6>
+      </div>
+    </ion-col>
+    <ion-col size="1.3 ">
+      <div>
+        <h6> {{uye.kayTarih | date:"dd.mm.yyyy hh:mm:ss "}}</h6>
+      </div>
+    </ion-col>
+    <ion-col size="1.3 ">
+      <div>
+        <ion-fab-button size="small" [routerLink]="['/uyeduzenlesil',uye.id,'duzenle']">
+          <ion-icon name="pencil"></ion-icon>
+        </ion-fab-button>
+      </div>
+    </ion-col>
+    <ion-col size="1.3 " class="ion-center">
+      <div>
+        <ion-fab-button color="danger" size="small" [routerLink]="['/uyeduzenlesil',uye.id,'sil']">
+          <ion-icon name="trash"></ion-icon>
+        </ion-fab-button>
+      </div>
+    </ion-col>
+  </ion-row>
+</ion-content>

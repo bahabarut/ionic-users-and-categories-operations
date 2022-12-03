@@ -1,0 +1,26 @@
+<ion-content>
+  <ion-grid>
+      <div class="flex-center">
+        <ion-card *ngIf="dataServis.OturumKontrol()" color="secondary">
+          <ion-card-header>
+            <ion-card-title>Hoş Geldiniz {{dataServis.aktifUye.adSoyad}}</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+
+          </ion-card-content>
+        </ion-card>
+      </div>
+    
+      <div class="flex-center">
+        <ion-card *ngIf="!dataServis.OturumKontrol()" color="danger">
+          <ion-card-header>
+            <ion-card-title>Uyarı!!</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            Lütfen Giriş Yapınız
+          </ion-card-content>
+        </ion-card>
+      </div>
+    
+  </ion-grid>
+</ion-content>

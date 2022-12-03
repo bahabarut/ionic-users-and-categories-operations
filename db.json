@@ -1,0 +1,39 @@
+{
+  "categories": [
+    {
+      "kategoriAdi": "Test1",
+      "duzTarih": "1669974459532",
+      "kayTarih": "1669729974940",
+      "id": 1
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "adSoyad": "Ali",
+      "mail": "ali@gmail.com",
+      "admin": "1",
+      "parola": "123",
+      "kayTarih": "1668070115626",
+      "duzTarih": "1668085146787"
+    },
+    {
+      "id": 2,
+      "adSoyad": "veli",
+      "mail": "veli@gmail.com",
+      "admin": "0",
+      "parola": "123",
+      "kayTarih": "1668070283323",
+      "duzTarih": "1668085150210"
+    },
+    {
+      "adSoyad": "baha",
+      "mail": "baha@gmail.com",
+      "admin": "1",
+      "parola": "123",
+      "duzTarih": "1669747688204",
+      "kayTarih": "1669589252423",
+      "id": 3
+    }
+  ]
+}
